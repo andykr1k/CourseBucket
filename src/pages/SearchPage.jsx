@@ -12,12 +12,12 @@ function SearchPage() {
   const sortedCourses = filteredCourses.sort();
 
   return (
-    <div classNameName="">
-      <h1 classNameName="text-5xl md:text-7xl font-bold p-10 pb-0 text-center">
+    <div className="">
+      <h1 className="text-5xl md:text-7xl font-bold p-10 pb-0 text-center">
         CourseBucket
       </h1>
 
-    <form classNameName='mx-10 md:mx-48 p-10'>
+    <form className='mx-10 md:mx-48 p-10'>
       <label for="default-search" className="mb-2 text-sm font-medium sr-only text-white">Search</label>
       <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -31,7 +31,7 @@ function SearchPage() {
       </div>
     </form>
 
-    <div classNameName='grid place-items-center grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 m-10'>
+    <div className='grid place-items-center grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 m-10'>
     { search == ''
     ?
       data && data.length>0 && data.map((item)=>
