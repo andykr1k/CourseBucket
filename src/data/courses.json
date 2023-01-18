@@ -1,0 +1,77 @@
+[
+    {
+        "id": "CSC101",
+        "name": "Introduction to Computer Science",
+        "professor": "John Smith"
+    },
+    {
+        "id": "MATH120",
+        "name": "Calculus I",
+        "professor": "Jane Doe"
+    },
+    {
+        "id": "ENG200",
+        "name": "British Literature",
+        "professor": "Bob Johnson"
+    },
+    {
+        "id": "CHEM150",
+        "name": "General Chemistry",
+        "professor": "Emily Brown"
+    },
+    {
+        "id": "PHYS101",
+        "name": "Introduction to Physics",
+        "professor": "Mark Taylor"
+    },
+    {
+        "id": "BIO205",
+        "name": "Genetics",
+        "professor": "Karen White"
+    },
+    {
+        "id": "HIST300",
+        "name": "Medieval History",
+        "professor": "Michael Green"
+    },
+    {
+        "id": "ECON201",
+        "name": "Macroeconomics",
+        "professor": "Samantha Black"
+    },
+    {
+        "id": "PSYC101",
+        "name": "Introduction to Psychology",
+        "professor": "David Wilson"
+    },
+    {
+        "id": "SOC101",
+        "name": "Introduction to Sociology",
+        "professor": "Rachel Davis"
+    },
+    {
+        "id": "BUS200",
+        "name": "Business Ethics",
+        "professor": "Ashley Miller"
+    },
+    {
+        "id": "ART100",
+        "name": "Art History I",
+        "professor": "Jessica Garcia"
+    },
+    {
+        "id": "EDU210",
+        "name": "Teaching Methods",
+        "professor": "James Rodriguez"
+    },
+    {
+        "id": "MUSIC100",
+        "name": "Music Appreciation",
+        "professor": "Gary Martinez"
+    },
+    {
+        "id": "THEA101",
+        "name": "Introduction to Theater",
+        "professor": "Maria Robinson"
+    }
+]
