@@ -61,5 +61,117 @@
         "professor": "David Wilson",
         "discord_link": "https://discord.com/psyc101",
         "course_time": "9:00am - 10:15am"
+    },
+    {
+        "id": "MATH120",
+        "name": "Calculus I",
+        "professor": "Jane Doe",
+        "discord_link": "https://discord.com/math120",
+        "course_time": "10:30am - 11:45am"
+    },
+    {
+        "id": "ENG200",
+        "name": "British Literature",
+        "professor": "Bob Johnson",
+        "discord_link": "https://discord.com/eng200",
+        "course_time": "1:00pm - 2:15pm"
+    },
+    {
+        "id": "CHEM150",
+        "name": "General Chemistry",
+        "professor": "Emily Brown",
+        "discord_link": "https://discord.com/chem150",
+        "course_time": "2:30pm - 3:45pm"
+    },
+    {
+        "id": "PHYS101",
+        "name": "Introduction to Physics",
+        "professor": "Mark Taylor",
+        "discord_link": "https://discord.com/phys101",
+        "course_time": "9:00am - 10:15am"
+    },
+    {
+        "id": "BIO205",
+        "name": "Genetics",
+        "professor": "Karen White",
+        "discord_link": "https://discord.com/bio205",
+        "course_time": "10:30am - 11:45am"
+    },
+    {
+        "id": "HIST300",
+        "name": "Medieval History",
+        "professor": "Michael Green",
+        "discord_link": "https://discord.com/hist300",
+        "course_time": "1:00pm - 2:15pm"
+    },
+    {
+        "id": "ECON201",
+        "name": "Macroeconomics",
+        "professor": "Samantha Black",
+        "discord_link": "https://discord.com/econ201",
+        "course_time": "2:30pm - 3:45pm"
+    },
+    {
+        "id": "PSYC101",
+        "name": "Introduction to Psychology",
+        "professor": "David Wilson",
+        "discord_link": "https://discord.com/psyc101",
+        "course_time": "9:00am - 10:15am"
+    },
+    {
+        "id": "MATH120",
+        "name": "Calculus I",
+        "professor": "Jane Doe",
+        "discord_link": "https://discord.com/math120",
+        "course_time": "10:30am - 11:45am"
+    },
+    {
+        "id": "ENG200",
+        "name": "British Literature",
+        "professor": "Bob Johnson",
+        "discord_link": "https://discord.com/eng200",
+        "course_time": "1:00pm - 2:15pm"
+    },
+    {
+        "id": "CHEM150",
+        "name": "General Chemistry",
+        "professor": "Emily Brown",
+        "discord_link": "https://discord.com/chem150",
+        "course_time": "2:30pm - 3:45pm"
+    },
+    {
+        "id": "PHYS101",
+        "name": "Introduction to Physics",
+        "professor": "Mark Taylor",
+        "discord_link": "https://discord.com/phys101",
+        "course_time": "9:00am - 10:15am"
+    },
+    {
+        "id": "BIO205",
+        "name": "Genetics",
+        "professor": "Karen White",
+        "discord_link": "https://discord.com/bio205",
+        "course_time": "10:30am - 11:45am"
+    },
+    {
+        "id": "HIST300",
+        "name": "Medieval History",
+        "professor": "Michael Green",
+        "discord_link": "https://discord.com/hist300",
+        "course_time": "1:00pm - 2:15pm"
+    },
+    {
+        "id": "ECON201",
+        "name": "Macroeconomics",
+        "professor": "Samantha Black",
+        "discord_link": "https://discord.com/econ201",
+        "course_time": "2:30pm - 3:45pm"
+    },
+    {
+        "id": "PSYC101",
+        "name": "Introduction to Psychology",
+        "professor": "David Wilson",
+        "discord_link": "https://discord.com/psyc101",
+        "course_time": "9:00am - 10:15am"
     }
 ]
