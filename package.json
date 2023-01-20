@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@supabase/supabase-js": "^2.4.0",
     "flowbite": "^1.6.2",
     "framer-motion": "^8.5.0",

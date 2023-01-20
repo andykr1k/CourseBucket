@@ -13,8 +13,6 @@ function SearchPage() {
       .select('*')
       setSupadata(supadata);
   });
-
-  console.log(supabase);
   
   const filteredCourses = data.filter(data =>
     data.name.toLowerCase().includes(search.toLowerCase()) ||
