@@ -19,7 +19,7 @@ function CoursePage() {
             </div>
         </div>
     {course && course.length>0 && course.map((item)=>
-    <div className="space-y-3 mb-5">
+    <div className="space-y-3 mb-5 align-middle ">
         <div className="w-full flex h-32 p-6 bg-white border border-gray-200 rounded-lg shadow-md justify-between">
           <div>
           <h5 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">{item.name}</h5>
