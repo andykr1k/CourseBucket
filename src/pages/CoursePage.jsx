@@ -20,18 +20,18 @@ function CoursePage() {
         </div>
     {course && course.length>0 && course.map((item)=>
     <div className="space-y-3 mb-5 align-middle ">
-        <div className="w-full flex h-32 p-6 bg-white border border-gray-200 rounded-lg shadow-md justify-between">
+        <div className="w-full flex h-32 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md justify-between">
           <div>
           <h5 className="mb-2 text-2xl font-bold text-gray-900 dark:text-white">{item.name}</h5>
           <p className="font-normal text-gray-700 dark:text-gray-400">{item.id}</p>
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.course_time}</p>
           </div>
         </div>
-        <div className="flex w-full h-16 p-6 bg-white border border-gray-200 rounded-lg">
+        <div className="flex w-full h-16 p-6 bg-white/90 border border-gray-200 rounded-lg">
           <p className="font-normal text-gray-600">Professor &nbsp;</p>
           <h5 className="font-bold text-gray-900">{item.professor}</h5>
         </div>
-        <div className="flex w-full h-16 p-6 bg-white border border-gray-200 rounded-lg">
+        <div className="flex w-full h-16 p-6 bg-white/90 border border-gray-200 rounded-lg">
           <p className="font-normal text-gray-600">Discord Links &nbsp;</p>
           <h5 className="font-bold text-gray-900 underline">{item.discord_link}</h5>
         </div>
