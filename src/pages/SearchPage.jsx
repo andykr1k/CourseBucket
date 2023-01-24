@@ -71,7 +71,7 @@ function SearchPage() {
         <h1 className="text-2xl md:text-4xl font-normal text-center text-gray-600 pb-5">Results</h1>
       }
       </div>
-      <div className='grid place-items-center grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 m-10 lg:m-36 lg:mt-5 mt-2'>
+      <div className='grid place-items-center grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 m-10 lg:m-36 lg:mt-5 mt-2'>
       { search == ''
       ?
       supadata && supadata.length>0 && supadata.map((item)=>
