@@ -49,7 +49,7 @@ function AddSectionModal({name, id}) {
         <form className="bg-white m-5 p-10 rounded-md">
           <div class="relative z-0 w-full mb-6 group">
             <h1 className="text-3xl md:text-5xl font-bold p-3 text-center text-black">
-              Add Course
+              Add Course Section
             </h1>
           </div>
           <div class="grid md:grid-cols-2 md:gap-6">
