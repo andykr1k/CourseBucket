@@ -13,23 +13,15 @@ function SearchPage() {
   const [modal, setModal] = useState(false);
 
   const fetchCourses = useCallback(async () => {
-    const { data: supadata } = await supabase
-      .from('Courses')
-      .select('*')
-      setSupadata(supadata);
+      const { data: supadata } = await supabase
+        .from('Courses')
+        .select('*')
+        setSupadata(supadata)
   });
 
-  const fetchSearchCourses = useCallback(async () => {
-    const { data: supadata } = await supabase
-      .from('Courses')
-      .select('*')
-      .eq('course_id', 'Equal to')
-      setSupadata(supadata);
-  });
-
-  const filteredCourses = data.filter(data =>
-    data.name.toLowerCase().includes(search.toLowerCase()) ||
-    data.id.toLowerCase().includes(search.toLowerCase())
+  const filteredCourses = supadata.filter(data =>
+    data.course_name.toLowerCase().includes(search.toLowerCase()) ||
+    data.course_id.toLowerCase().includes(search.toLowerCase())
   );
 
   const sortedCourses = filteredCourses.sort();
@@ -77,7 +69,7 @@ function SearchPage() {
         <h1 className="text-2xl md:text-4xl font-normal text-center text-gray-600 pb-5">Results</h1>
       }
       </div>
-      <div className='grid place-items-center grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 m-10 lg:m-36 lg:mt-5 mt-2'>
+      <div className='grid place-items-center grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 m-10 lg:m-36 lg:mt-5 mt-2'>
       { search == ''
       ?
       supadata && supadata.length>0 && supadata.map((item)=>
@@ -95,11 +87,11 @@ function SearchPage() {
           </motion.div>
         )
       :
-        sortedCourses && sortedCourses.length>0 && sortedCourses.map((item)=>
+      sortedCourses && sortedCourses.length>0 && sortedCourses.map((item)=>
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
           <div>
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.id}</h5>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap overflow-x-auto scrollbar-hide">{item.name}</p>
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.course_id}</h5>
+              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap overflow-x-auto scrollbar-hide">{item.course_name}</p>
           </div>
           <div>
               <a href={item.id} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

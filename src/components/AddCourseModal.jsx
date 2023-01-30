@@ -18,8 +18,8 @@ function AddCourseModal() {
   });
 
     return (
-      <div className="bg-white m-5 p-10 rounded-md">
-        <form>
+      <div className="">
+        <form className="bg-white m-5 p-10 rounded-md">
           <div class="relative z-0 w-full mb-6 group">
             <h1 className="text-3xl md:text-5xl font-bold p-3 text-center text-black">
               Add Course
