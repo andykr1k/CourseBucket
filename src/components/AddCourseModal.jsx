@@ -2,8 +2,9 @@ import { useState, useCallback } from "react"
 import { supabase } from '../db/supabase'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AiOutlinePlusCircle, AiOutlineCloseCircle, AiFillCloseCircle } from "react-icons/ai";
 
-function AddCourseModal() {
+function AddCourseModal({close}) {
   const [courseName, setCourseName] = useState('')
   const [courseId, setCoursId] = useState('')
   const [courseProfessor, setCourseProfessor] = useState('')
@@ -94,6 +95,7 @@ function AddCourseModal() {
             </div>
           </div>
           <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={addCourse}>Submit</button>
+          <button class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-blue-700 dark:focus:ring-red-800 mt-1" onClick={() => close(false)}>Cancel</button>
         </form>
         <ToastContainer />
       </div>

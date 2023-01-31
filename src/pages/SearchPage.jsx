@@ -40,8 +40,7 @@ function SearchPage() {
         modal == true
         ?
         <div className='pointer-events-auto'>
-          <AddCourseModal/>
-          <button className='fixed top-0 left-0 m-3 z-50' onClick={() => setModal(false)}><AiFillCloseCircle color='red' size={36}/></button>
+          <AddCourseModal close={setModal}/>
         </div>
         :
         <div className=''></div>

@@ -3,7 +3,6 @@ import data from '../data/courses.json'
 import { motion } from "framer-motion";
 import { supabase } from '../db/supabase'
 import { useState, useEffect, useCallback } from 'react'
-import { AiOutlinePlusCircle, AiOutlineCloseCircle, AiFillCloseCircle } from "react-icons/ai";
 import { AddSectionModal } from '../components';
 
 function CoursePage() {
@@ -28,8 +27,7 @@ function CoursePage() {
         modal == true
         ?
         <div className='pointer-events-auto'>
-          <AddSectionModal name={supadata.at(0).course_name} id={id}/>
-          <button className='fixed top-0 left-0 m-3 z-50' onClick={() => setModal(false)}><AiFillCloseCircle color='red' size={36}/></button>
+          <AddSectionModal close={setModal} name={supadata.at(0).course_name} id={id}/>
         </div>
         :
         <div className=''></div>
