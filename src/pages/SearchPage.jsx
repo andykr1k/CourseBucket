@@ -75,12 +75,12 @@ function SearchPage() {
       ?
       supadata && supadata.length>0 && supadata.map((item)=>
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-          <div className='overflow-x-hidden '>
+          <div className='overflow-x-hidden'>
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.course_id}</h5>
             {
               item.course_name.length > 20 
               ?
-              <h5 className="mb-3 font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap scrollbar-hide animate-marquee">{item.course_name}</h5>
+              <h5 className="mb-3 font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap scrollbar-hide">{item.course_name}</h5>
               :
               <h5 className="mb-3 font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap scrollbar-hide">{item.course_name}</h5>
             }
