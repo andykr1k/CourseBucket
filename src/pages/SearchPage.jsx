@@ -16,7 +16,9 @@ function SearchPage() {
       const { data: supadata } = await supabase
         .from('Courses')
         .select('*')
-        setSupadata(supadata)
+      
+      const unique = [...new Map(supadata.map((m) => [m.course_id, m])).values()];
+      setSupadata(unique)
   });
 
   const filteredCourses = supadata.filter(data =>
