@@ -17,7 +17,7 @@ function AddSectionModal({close, name, id}) {
     
       const { data, error } = await supabase
         .from('Courses')
-        .insert([{ course_id: id, course_professor: courseProfessor, course_name: name, course_type: courseType, course_time: courseTime, discord_link: discordLink, course_location: courseLocation, slack_link: slackLink },])
+        .insert([{ course_id: id, course_professor: courseProfessor, course_name: name, course_type: courseType, course_time: courseTime, discord_link: discordLink, course_location: courseLocation, slack_link: slackLink }])
   
       toast.success("Course Section Added to Database!", {
         position: "bottom-center",
@@ -30,7 +30,7 @@ function AddSectionModal({close, name, id}) {
         theme: "dark",
         })
     } else {
-      toast.error("Please fill in Name, ID, Professor and Type.", {
+      toast.error("Fill in Name, ID, Professor and Type.", {
         position: "bottom-center",
         autoClose: 5000,
         hideProgressBar: false,

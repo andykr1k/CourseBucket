@@ -20,7 +20,7 @@ function AddCourseModal({close}) {
     
     const { data, error } = await supabase
       .from('Courses')
-      .insert([{ course_id: courseId, course_professor: courseProfessor, course_name: courseName, course_type: courseType, course_time: courseTime, discord_link: discordLink, course_location: courseLocation, slack_link: slackLink },])
+      .insert([{ course_id: courseId, course_professor: courseProfessor, course_name: courseName, course_type: courseType, course_time: courseTime, discord_link: discordLink, course_location: courseLocation, slack_link: slackLink }])
 
     toast.success("Course Added to Database!", {
       position: "bottom-center",
@@ -33,7 +33,7 @@ function AddCourseModal({close}) {
       theme: "dark",
       })
   } else {
-    toast.error("Please fill in Name, ID, Professor and Type.", {
+    toast.error("Fill in Name, ID, Professor and Type.", {
       position: "bottom-center",
       autoClose: 5000,
       hideProgressBar: false,
