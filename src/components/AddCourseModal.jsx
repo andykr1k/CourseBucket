@@ -50,7 +50,7 @@ function AddCourseModal({close}) {
       <div className="m-5">
         <form className="bg-white p-8 rounded-md">
           <div class="relative z-0 w-full group">
-            <h1 className="text-3xl md:text-5xl font-bold p-2 md:p-5 text-center text-black">
+            <h1 className="text-xl md:text-3xl font-bold p-2 md:p-3 text-center text-black">
               Add Course
             </h1>
           </div>
