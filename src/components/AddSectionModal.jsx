@@ -1,8 +1,6 @@
 import { useState, useCallback } from "react"
 import { supabase } from '../db/supabase'
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { AiOutlinePlusCircle, AiOutlineCloseCircle, AiFillCloseCircle } from "react-icons/ai";
 
 function AddSectionModal({close, name, id}) {
   const [courseProfessor, setCourseProfessor] = useState('')
@@ -19,18 +17,28 @@ function AddSectionModal({close, name, id}) {
         .insert([{ course_id: id, course_professor: courseProfessor, course_name: name, course_type: courseType, course_time: courseTime, discord_link: discordLink, course_location: courseLocation, slack_link: slackLink }])
       
         if (error){
-          console.log(error)
+          toast.error(error, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            })
+        } else {
+          toast.success("Course Section Added to Database!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            })
         }
-      toast.success("Course Section Added to Database!", {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        })
     }
   });
 

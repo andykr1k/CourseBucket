@@ -1,7 +1,6 @@
 import { useState, useCallback } from "react"
 import { supabase } from '../db/supabase'
 import { ToastContainer, toast } from 'react-toastify';
-import { Navigate, useNavigate } from "react-router";
 
 function AddCourseModal({close}) {
   const [courseName, setCourseName] = useState('')
@@ -21,24 +20,34 @@ function AddCourseModal({close}) {
       .from('Courses')
       .insert([{ course_id: courseId, course_professor: courseProfessor, course_name: courseName, course_type: courseType, course_time: courseTime, discord_link: discordLink, course_location: courseLocation, slack_link: slackLink }])
       if (error){
-        console.log(error)
+        toast.error(error, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          })
+      } else {
+        toast.success("Course Section Added to Database!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          })
       }
-    toast.success("Course Added to Database!", {
-      position: "bottom-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      })
   }
   });
 
     return (
       <div className="m-5">
-        <form className="bg-white p-8 rounded-md" onSubmit={addCourse}>
+        <form className="bg-white p-8 rounded-md" onSubmit={() => addCourse()}>
           <div className="relative z-0 w-full group">
             <h1 className="text-xl md:text-3xl font-bold pb-2 md:pb-3 text-center text-black">
               Add Course
