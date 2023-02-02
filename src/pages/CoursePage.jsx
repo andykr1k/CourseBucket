@@ -3,11 +3,13 @@ import data from '../data/courses.json'
 import { motion } from "framer-motion";
 import { supabase } from '../db/supabase'
 import { useState, useEffect, useCallback } from 'react'
-import { AddSectionModal } from '../components';
+import { AddSectionModal, Loader } from '../components';
 
 function CoursePage() {
   const [supadata, setSupadata] = useState([]);
   const [modal, setModal] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   let { id } = useParams();
 
   const fetchCourses = useCallback(async () => {
@@ -16,12 +18,21 @@ function CoursePage() {
       .select('*')
       .eq('course_id', id)
       setSupadata(supadata);
+      setTimeout(() => {
+        setLoading(false)
+      }, 750);
   });
   useEffect(() => {
     fetchCourses();
   }, []);
   return (
-    <div className='h-100vh w-100vw'>
+    <>
+    {
+      loading == true
+      ?
+      <Loader />
+      :
+      <div className='h-100vh w-100vw'>
     <div className='fixed z-10 pointer-events-none w-full'>
       {
         modal == true
@@ -50,7 +61,7 @@ function CoursePage() {
       </div>
       <div className="grid grid-cols-1 gap-1 md:gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     {supadata && supadata.length>0 && supadata.map((item)=>
-    <div className="space-y-3 mb-5 align-middle ">
+    <div key={item.id} className="space-y-3 mb-5 align-middle ">
         <div className="grid w-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md justify-between">
           <div>
           <h5 className="text-2xl font-bold text-gray-900 dark:text-white">{item.course_name}</h5>
@@ -71,6 +82,9 @@ function CoursePage() {
     </div>
     </div>
     </div>
+    }
+    </>
+    
   )
 }
 

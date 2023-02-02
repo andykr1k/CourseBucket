@@ -21,8 +21,6 @@ function AddCourseModal({close}) {
       .from('Courses')
       .insert([{ course_id: courseId, course_professor: courseProfessor, course_name: courseName, course_type: courseType, course_time: courseTime, discord_link: discordLink, course_location: courseLocation, slack_link: slackLink }])
 
-    navigate("/");
-    
     toast.success("Course Added to Database!", {
       position: "bottom-center",
       autoClose: 5000,

@@ -28,8 +28,6 @@ function AddSectionModal({close, name, id}) {
         progress: undefined,
         theme: "dark",
         })
-
-      close(true);
     }
   });
 
