@@ -34,7 +34,7 @@ function CoursePage() {
       }
       </div>
       <div className="p-5">
-      <div className="flex mb-3 justify-between">
+        <div className="flex mb-3 justify-between">
             <div>
               <a href="/">
                 <motion.button className='font-bold bg-blue-600 p-3 rounded-md' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>

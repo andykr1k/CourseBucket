@@ -1,8 +1,7 @@
 import { useState, useCallback } from "react"
 import { supabase } from '../db/supabase'
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { AiOutlinePlusCircle, AiOutlineCloseCircle, AiFillCloseCircle } from "react-icons/ai";
+import { Navigate, useNavigate } from "react-router";
 
 function AddCourseModal({close}) {
   const [courseName, setCourseName] = useState('')
@@ -22,18 +21,9 @@ function AddCourseModal({close}) {
       .from('Courses')
       .insert([{ course_id: courseId, course_professor: courseProfessor, course_name: courseName, course_type: courseType, course_time: courseTime, discord_link: discordLink, course_location: courseLocation, slack_link: slackLink }])
 
+    navigate("/");
+    
     toast.success("Course Added to Database!", {
-      position: "bottom-center",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      })
-  } else {
-    toast.error("Fill in Name, ID, Professor and Type.", {
       position: "bottom-center",
       autoClose: 5000,
       hideProgressBar: false,
@@ -48,7 +38,7 @@ function AddCourseModal({close}) {
 
     return (
       <div className="m-5">
-        <form className="bg-white p-8 rounded-md">
+        <form className="bg-white p-8 rounded-md" onSubmit={addCourse}>
           <div class="relative z-0 w-full group">
             <h1 className="text-xl md:text-3xl font-bold pb-2 md:pb-3 text-center text-black">
               Add Course
@@ -94,7 +84,7 @@ function AddCourseModal({close}) {
                 <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Slack Link (Ex. slack.com/aZ3as3A2s)</label>
             </div>
           </div>
-          <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={addCourse}>Submit</button>
+          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
           <button class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-blue-700 dark:focus:ring-red-800 mt-1" onClick={() => close(false)}>Cancel</button>
         </form>
         <ToastContainer />

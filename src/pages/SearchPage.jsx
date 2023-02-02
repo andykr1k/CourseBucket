@@ -6,6 +6,7 @@ import { AddCourseModal } from '../components';
 import { AiOutlinePlusCircle, AiOutlineCloseCircle, AiFillCloseCircle } from "react-icons/ai";
 import logo_light from '../assets/logo_light.png'
 import logo_dark from '../assets/logo_dark.png'
+import { ToastContainer } from 'react-toastify';
 
 function SearchPage() {
   const [search, setSearch] = useState('');
