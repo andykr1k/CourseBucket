@@ -44,7 +44,7 @@ function AddSectionModal({close, name, id}) {
 
     return (
       <div className="m-5">
-        <form className="bg-white p-8 rounded-md" onSubmit={addCourse}>
+        <form className="bg-white p-8 rounded-md" onSubmit={() => addCourse()}>
           <div className="relative z-0 w-full group">
             <h1 className="text-xl md:text-3xl font-bold pb-2 md:pb-3 text-center text-black">
               Add Course Section
