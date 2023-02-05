@@ -9,7 +9,7 @@ function App() {
         <Route path="/" element={ <SearchPage/>} />
         <Route path="/:id"  element={ <CoursePage/>} />
         <Route path="/add" element= { <AddCourseModal/>} />
-      </Routes>
+    </Routes>
   )
 }
 

@@ -7,6 +7,7 @@ import { AiOutlinePlusCircle, AiOutlineCloseCircle, AiFillCloseCircle } from "re
 import logo_light from '../assets/logo_light.png'
 import logo_dark from '../assets/logo_dark.png'
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SearchPage() {
   const [search, setSearch] = useState('');
@@ -45,7 +46,9 @@ function SearchPage() {
       <Loader />
       :
       <div className="">
-      <button className='fixed bottom-0 right-0 m-3' onClick={() => setModal(true)}> <AiOutlinePlusCircle size={36}/></button>
+      { modal == true ? <div className=''></div> :
+        <button className='fixed bottom-0 right-0 m-3' onClick={() => setModal(true)}> <AiOutlinePlusCircle size={36}/></button>
+      }
     <div className='absolute z-10 w-full h-modal pointer-events-none'>
     {
       modal == true
@@ -121,6 +124,7 @@ function SearchPage() {
       )
     }
     </div>
+    <ToastContainer />
     </div>
     }
     </>

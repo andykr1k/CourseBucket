@@ -39,12 +39,23 @@ function AddSectionModal({close, name, id}) {
             theme: "dark",
             })
         }
+    } else {
+      toast.error("Please fill in professor and type", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        })
     }
   });
 
     return (
       <div className="m-5">
-        <form className="bg-white p-8 rounded-md" onSubmit={() => addCourse()}>
+        <form className="bg-white p-8 rounded-md" onSubmit={addCourse}>
           <div className="relative z-0 w-full group">
             <h1 className="text-xl md:text-3xl font-bold pb-2 md:pb-3 text-center text-black">
               Add Course Section
@@ -83,7 +94,6 @@ function AddSectionModal({close, name, id}) {
           <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
           <button className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-blue-700 dark:focus:ring-red-800 mt-1" onClick={() => close(false)}>Cancel</button>
         </form>
-        <ToastContainer />
       </div>
     )
 }
