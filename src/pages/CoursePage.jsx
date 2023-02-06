@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { supabase } from '../db/supabase'
 import { useState, useEffect, useCallback } from 'react'
 import { AddSectionModal, Loader } from '../components';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CoursePage() {
   const [supadata, setSupadata] = useState([]);
@@ -79,6 +81,7 @@ function CoursePage() {
             )}
           </div>
         </div>
+        <ToastContainer />
       </div>
     }
     </>
