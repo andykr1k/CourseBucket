@@ -28,3 +28,10 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+@media (max-width: 800px) {
+  .Toastify__toast-container {
+    width: 250px;
+    font-size: 14px;
+  }
+}
