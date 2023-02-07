@@ -1,10 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
-import data from '../data/courses.json'
 import { motion } from 'framer-motion';
 import { supabase } from '../db/supabase'
 import { AddCourseModal, Loader } from '../components';
-import { AiOutlinePlusCircle, AiOutlineCloseCircle, AiFillCloseCircle } from "react-icons/ai";
-import logo_light from '../assets/logo_light.png'
+import { AiOutlinePlusCircle } from "react-icons/ai";
 import logo_dark from '../assets/logo_dark.png'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,7 +19,7 @@ function SearchPage() {
         .select('*')
       
       const unique = [...new Map(supadata.map((m) => [m.course_id, m])).values()];
-      setSupadata(unique)
+      setSupadata(unique.sort((a, b) => a.course_id > b.course_id  ? 1 : -1))
       setTimeout(() => {
         setLoading(false)
       }, 750);
@@ -32,7 +30,7 @@ function SearchPage() {
     data.course_id.toLowerCase().includes(search.toLowerCase())
   );
 
-  const sortedCourses = filteredCourses.sort();
+  const sortedCourses = filteredCourses.sort((a, b) => a.course_id > b.course_id  ? 1 : -1);
 
   useEffect(() => {
     fetchCourses();
@@ -60,7 +58,7 @@ function SearchPage() {
       <div className=''></div>
     }
     </div>
-    <div className='flex justify-center items-center p-5 pb-0'>
+    <div className='flex justify-center items-center p-8 pb-0'>
       <img src={logo_dark} className='w-52 md:w-72'></img>
     </div>
   <form className='mx-10 md:mx-48 p-10 pb-8 pt-8'>
@@ -87,7 +85,7 @@ function SearchPage() {
     { search == ''
     ?
     supadata && supadata.length>0 && supadata.map((item)=>
-      <motion.div key={item.id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <motion.div key={item.id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div className='overflow-x-hidden'>
           <h5 className="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.course_id}</h5>
           {
@@ -109,10 +107,16 @@ function SearchPage() {
       )
     :
     sortedCourses && sortedCourses.length>0 && sortedCourses.map((item)=>
-        <motion.div key={item.id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
-        <div>
+        <motion.div key={item.id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <div className='overflow-x-hidden'>
             <h5 className="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.course_id}</h5>
-            <p className="mb-3 text-xs md:text-base font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap scrollbar-hide">{item.course_name}</p>
+            {
+            item.course_name.length > 20 
+            ?
+            <h5 className="mb-3 text-xs md:text-base font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap scrollbar-hide">{item.course_name}</h5>
+            :
+            <h5 className="mb-3 text-xs md:text-base font-normal text-gray-700 dark:text-gray-400 whitespace-nowrap scrollbar-hide">{item.course_name}</h5>
+          }
         </div>
         <div>
             <a href={item.id} className="inline-flex items-center px-3 py-2 text-xs md:text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

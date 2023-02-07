@@ -1,9 +1,8 @@
 import { useParams } from "react-router";
-import data from '../data/courses.json'
 import { motion } from "framer-motion";
 import { supabase } from '../db/supabase'
 import { useState, useEffect, useCallback } from 'react'
-import { AddSectionModal, Loader } from '../components';
+import { AddSectionModal, Loader, DeleteCourse } from '../components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -22,7 +21,7 @@ function CoursePage() {
       setSupadata(supadata);
       setTimeout(() => {
         setLoading(false)
-      }, 750);
+      }, 250);
   });
   useEffect(() => {
     fetchCourses();
@@ -61,7 +60,7 @@ function CoursePage() {
           </div>
           <div className="grid grid-cols-1 gap-1 md:gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {supadata && supadata.length>0 && supadata.map((item)=>
-            <div key={item.id} className="space-y-3 mb-5 align-middle ">
+            <motion.div key={item.id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} className="space-y-3 mb-5 align-middle ">
                 <div className="grid w-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md justify-between">
                   <div>
                     <h5 className="text-2xl font-bold text-gray-900 dark:text-white">{item.course_name}</h5>
@@ -76,8 +75,11 @@ function CoursePage() {
                     <p className="font-normal text-gray-600">Discord Links &nbsp;</p>
                     <h5 className="font-bold text-gray-900 underline">{item.discord_link}</h5>
                   </div>
+                  <div className="flex mt-3">
+                    <DeleteCourse id={item.id} />
+                  </div>
                 </div>
-            </div>
+            </motion.div>
             )}
           </div>
         </div>

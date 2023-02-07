@@ -31,7 +31,8 @@
 
 @media (max-width: 800px) {
   .Toastify__toast-container {
-    width: 250px;
     font-size: 14px;
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
