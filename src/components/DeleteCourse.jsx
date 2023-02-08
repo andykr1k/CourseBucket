@@ -3,8 +3,9 @@ import { supabase } from '../db/supabase'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
 
-export default function DeleteCourse({id}){
+export default function DeleteCourse({id, length}){
     const navigate = useNavigate();
 
     async function handleDelete() {
@@ -35,13 +36,15 @@ export default function DeleteCourse({id}){
                 progress: undefined,
                 theme: "dark",
             })
-            navigate("/");
+            if (length == 1){
+                navigate("/");
+            }
         }
     }
     
     return (
         <div>
-            <button onClick={handleDelete} className="font-normal bg-red-500 p-2 rounded-md">Delete Course</button>
+            <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={handleDelete} className="font-normal bg-red-500 p-2 rounded-md">Delete Course</motion.button>
         </div>
     );
 };
