@@ -27,7 +27,7 @@ export default function DeleteCourse({id, length}){
             })
         } else {
             if (length == 1){
-                toast.success("Course Delete from the Database!", {
+                toast.success("Course Deleted!", {
                     position: "top-center",
                     autoClose: 1500,
                     hideProgressBar: false,
@@ -41,7 +41,7 @@ export default function DeleteCourse({id, length}){
                     navigate("/");
                 }, 2000);
             } else {
-                toast.success("Course Delete from the Database!", {
+                toast.success("Course Deleted!", {
                     position: "top-center",
                     autoClose: 1500,
                     hideProgressBar: false,

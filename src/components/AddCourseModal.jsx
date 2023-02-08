@@ -65,7 +65,7 @@ function AddCourseModal({close}) {
           })
       } else {
         close(false)
-        toast.success("Course Section Added to Database!", {
+        toast.success("Course Created!", {
           position: "top-center",
           autoClose: 2500,
           hideProgressBar: false,

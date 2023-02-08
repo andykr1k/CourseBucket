@@ -62,7 +62,7 @@ function AddSectionModal({close, name, id}) {
             })
         } else {
           close(false)
-          toast.success("Course Section Added to Database!", {
+          toast.success("Course Section Created!", {
             position: "top-center",
             autoClose: 2500,
             hideProgressBar: false,
