@@ -55,7 +55,7 @@ function AddCourseModal({close}) {
       if (error){
         toast.error(error, {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -64,9 +64,10 @@ function AddCourseModal({close}) {
           theme: "dark",
           })
       } else {
+        close(false)
         toast.success("Course Section Added to Database!", {
           position: "top-center",
-          autoClose: 5000,
+          autoClose: 2500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -74,12 +75,14 @@ function AddCourseModal({close}) {
           progress: undefined,
           theme: "dark",
           })
-          close(false)
+          setTimeout(() => {
+            window.location.reload(false);
+          }, 3000);
       }
   } else {
     toast.error("Please fill in name, id, professor and type", {
       position: "top-center",
-      autoClose: 5000,
+      autoClose: 2500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

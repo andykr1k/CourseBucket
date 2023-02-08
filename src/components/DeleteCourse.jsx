@@ -17,7 +17,7 @@ export default function DeleteCourse({id, length}){
         if (error){
             toast.error(error, {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 2500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -26,18 +26,34 @@ export default function DeleteCourse({id, length}){
             theme: "dark",
             })
         } else {
-            toast.success("Course Delete from the Database!", {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-            })
             if (length == 1){
-                navigate("/");
+                toast.success("Course Delete from the Database!", {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                })
+                setTimeout(() => {
+                    navigate("/");
+                }, 2000);
+            } else {
+                toast.success("Course Delete from the Database!", {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                })
+                setTimeout(() => {
+                    window.location.reload(false);
+                  }, 2000);
             }
         }
     }

@@ -52,7 +52,7 @@ function AddSectionModal({close, name, id}) {
         if (error){
           toast.error(error, {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 2500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -61,9 +61,10 @@ function AddSectionModal({close, name, id}) {
             theme: "dark",
             })
         } else {
+          close(false)
           toast.success("Course Section Added to Database!", {
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 2500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -71,12 +72,14 @@ function AddSectionModal({close, name, id}) {
             progress: undefined,
             theme: "dark",
             })
-            close(false)
+            setTimeout(() => {
+              window.location.reload(false);
+            }, 3000);
         }
     } else {
       toast.error("Please fill in professor and type", {
         position: "top-center",
-        autoClose: 5000,
+        autoClose: 2500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
