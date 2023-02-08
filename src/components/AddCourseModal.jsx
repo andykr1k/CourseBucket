@@ -91,7 +91,7 @@ function AddCourseModal({close}) {
   });
 
     return (
-      <div className="m-5">
+      <div className="m-5 sm:m-20 xl:m-44">
         <form className="bg-white p-8 rounded-md" onSubmit={addCourse}>
           <div className="relative z-0 w-full group">
             <h1 className="text-xl md:text-3xl font-bold pb-2 md:pb-3 text-center text-black">
