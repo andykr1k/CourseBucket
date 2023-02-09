@@ -66,7 +66,7 @@ function CoursePage() {
                     </motion.button>
                   </a>
                   <h1 className='font-bold bg-blue-600 p-3 rounded-md'>
-                  {supadata.at(0).course_id}
+                    {supadata.at(0).course_id}
                   </h1>
                 </div>
                 <div className="space-x-3">
@@ -93,7 +93,7 @@ function CoursePage() {
                     <h5 className="font-bold text-gray-900">{item.course_professor}</h5>
                   </div>
                   <div className="flex">
-                    <p className="font-normal text-gray-600">Discord Links &nbsp;</p>
+                    <p className="font-normal text-gray-600">Social Link &nbsp;</p>
                     <h5 className="font-bold text-gray-900 underline">{item.discord_link}</h5>
                   </div>
                   <div className="flex mt-3">
