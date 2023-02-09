@@ -51,7 +51,7 @@ function SearchPage() {
     {
       modal == true
       ?
-      <div className='pointer-events-auto'>
+      <div className='pointer-events-auto backdrop-blur-sm h-screen p-5 sm:p-20 xl:p-44'>
         <AddCourseModal close={setModal}/>
       </div>
       :

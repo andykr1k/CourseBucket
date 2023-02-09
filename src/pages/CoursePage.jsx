@@ -50,7 +50,7 @@ function CoursePage() {
       <div className='h-100vh w-100vw'>
         <div className='fixed z-10 pointer-events-none w-full'>
           { modal == true ?
-            <div className='pointer-events-auto'>
+            <div className='pointer-events-auto backdrop-blur-sm h-screen p-5 sm:p-20 xl:p-44'>
               <AddSectionModal close={setModal} name={supadata.at(0).course_name} id={id}/>
             </div>
             :
@@ -59,12 +59,15 @@ function CoursePage() {
         </div>
           <div className="p-5">
             <div className="flex mb-3 justify-between">
-                <div>
+                <div className="flex align-middle items-center space-x-3">
                   <a href="/">
                     <motion.button className='font-bold bg-blue-600 p-3 rounded-md' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                       Home
                     </motion.button>
                   </a>
+                  <h1 className='font-bold bg-blue-600 p-3 rounded-md'>
+                  {supadata.at(0).course_id}
+                  </h1>
                 </div>
                 <div className="space-x-3">
                     <motion.button className='font-bold bg-blue-600 p-3 rounded-md' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={handleFilter}> 

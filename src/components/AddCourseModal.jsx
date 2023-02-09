@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react"
 import { supabase } from '../db/supabase'
 import { toast } from 'react-toastify';
+import { motion } from "framer-motion";
 import 'react-toastify/dist/ReactToastify.css';
 
 function AddCourseModal({close}) {
@@ -94,7 +95,7 @@ function AddCourseModal({close}) {
   });
 
     return (
-      <div className="m-5 sm:m-20 xl:m-44">
+      <div className="">
         <form className="bg-white p-8 rounded-md" onSubmit={addCourse}>
           <div className="relative z-0 w-full group">
             <h1 className="text-xl md:text-3xl font-bold pb-2 md:pb-3 text-center text-black">
@@ -197,55 +198,55 @@ function AddCourseModal({close}) {
             </div>
             <div className="relative z-0 w-full mb-6 group space-x-3 flex align-middle justify-center items-center">
             <h3 className="text-sm text-gray-500 dark:text-gray-400"> Weekdays </h3>
-                { monday == true ?
-                    <button type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setMonday(!monday)}>
+            { monday == true ?
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setMonday(!monday)}>
                       M
-                    </button>
+                    </motion.button>
                 :
-                    <button type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setMonday(!monday)}>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setMonday(!monday)}>
                       M
-                    </button>
+                    </motion.button>
                 }
                 { tuesday == true ?
-                    <button type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setTuesday(!tuesday)}>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setTuesday(!tuesday)}>
                       T
-                    </button>
+                    </motion.button>
                 :
-                    <button type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setTuesday(!tuesday)}>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setTuesday(!tuesday)}>
                       T
-                    </button>
+                    </motion.button>
                 }
                 { wednesday == true ?
-                    <button type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setWednesday(!wednesday)}>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setWednesday(!wednesday)}>
                       W
-                    </button>
+                    </motion.button>
                 :
-                    <button type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setWednesday(!wednesday)}>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setWednesday(!wednesday)}>
                       W
-                    </button>
+                    </motion.button>
                 }
                 { thursday == true ?
-                    <button type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setThursday(!thursday)}>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setThursday(!thursday)}>
                       Th
-                    </button>
+                    </motion.button>
                 :
-                    <button type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setThursday(!thursday)}>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setThursday(!thursday)}>
                       Th
-                    </button>
+                    </motion.button>
                 }
                 { friday == true ?
-                    <button type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setFriday(!friday)}>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-blue-600 p-2 font-bold rounded-md" onClick={() => setFriday(!friday)}>
                       F
-                    </button>
+                    </motion.button>
                 :
-                    <button type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setFriday(!friday)}>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} type="button" className="text-sm text-white bg-slate-400 p-2 font-bold rounded-md" onClick={() => setFriday(!friday)}>
                       F
-                    </button>
+                    </motion.button>
                 }
             </div>
           </div>
-          <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-          <button className="text-white bg-red-500 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-blue-700 dark:focus:ring-red-800 mt-1" onClick={() => close(false)}>Cancel</button>
+          <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center ">Submit</button>
+          <button className="text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center mt-1" onClick={() => close(false)}>Cancel</button>
         </form>
       </div>
     )
