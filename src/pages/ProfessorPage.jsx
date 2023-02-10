@@ -7,7 +7,7 @@ import { ErrorPage } from '../pages'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function CoursePage() {
+function ProfessorPage() {
   const [supadata, setSupadata] = useState([]);
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -18,9 +18,10 @@ function CoursePage() {
     const { data: supadata } = await supabase
       .from('Courses')
       .select('*')
-      .eq('course_id', id)
+      .eq('course_professor', id.replace(/%20/g, ' '))
 
       setSupadata(supadata);
+      console.log(supadata);
       setTimeout(() => {
         setLoading(false)
       }, 250);
@@ -29,7 +30,7 @@ function CoursePage() {
 
   const handleFilter = (e) => {
     e.preventDefault();
-    supadata.sort((a, b) => a.course_professor > b.course_professor  ? 1 : -1)
+    supadata.sort((a, b) => a.course_id > b.course_id ? 1 : -1)
   }
 
   useEffect(() => {
@@ -61,7 +62,7 @@ function CoursePage() {
                     </motion.button>
                   </a>
                   <h1 className='font-bold bg-blue-600 p-3 rounded-md'>
-                    {supadata.at(0).course_id}
+                    {id}
                   </h1>
                 </div>
                 <div className="space-x-3">
@@ -77,7 +78,7 @@ function CoursePage() {
             <div className="grid grid-cols-1 gap-1 md:gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {supadata && supadata.length>0 && supadata.map((item)=>
             <motion.div key={item.id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} className="space-y-3 mb-5 align-middle ">
-                <div className="grid w-full h-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md justify-between">
+            <div className="grid w-full h-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md justify-between">
                   <div>
                     <h5 className="text-2xl font-bold text-gray-900 dark:text-white">{item.course_name}</h5>
                     <a href={"/"+item.course_id}>
@@ -116,4 +117,4 @@ function CoursePage() {
   )
 }
 
-export default CoursePage
+export default ProfessorPage
