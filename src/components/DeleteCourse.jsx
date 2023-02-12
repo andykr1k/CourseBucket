@@ -5,14 +5,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 
-export default function DeleteCourse({id, length}){
+export default function DeleteCourse({crn, length}){
     const navigate = useNavigate();
 
     async function handleDelete() {
         const { error } = await supabase
             .from('Courses')
             .delete()
-            .eq('id', id)
+            .eq('course_crn', crn)
 
         if (error){
             toast.error(error, {

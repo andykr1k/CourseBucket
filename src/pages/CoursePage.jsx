@@ -18,7 +18,7 @@ function CoursePage() {
     const { data: supadata } = await supabase
       .from('Courses')
       .select('*')
-      .eq('course_id', id)
+      .eq('course_id', id.replace(/%20/g, ' '))
 
       setSupadata(supadata);
       setTimeout(() => {
@@ -98,7 +98,7 @@ function CoursePage() {
                     </a>
                   </div>
                   <div className="flex mt-3">
-                    <DeleteCourse id={item.id} length={supadata.length} />
+                    <DeleteCourse crn={item.course_crn} length={supadata.length} />
                   </div>
                 </div>
             </motion.div>
