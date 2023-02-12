@@ -44,20 +44,6 @@ function SearchPage() {
       <Loader />
       :
       <div className="">
-      { modal == true ? <div className=''></div> :
-        <button className='fixed bottom-0 right-0 m-3' onClick={() => setModal(true)}> <AiOutlinePlusCircle size={36}/></button>
-      }
-    <div className='absolute z-10 w-full h-modal pointer-events-none'>
-    {
-      modal == true
-      ?
-      <div className='pointer-events-auto backdrop-blur-sm h-screen p-5 sm:p-20 xl:p-44'>
-        <AddCourseModal close={setModal}/>
-      </div>
-      :
-      <div className=''></div>
-    }
-    </div>
     <div className='flex justify-center items-center p-8 pb-0'>
       <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} src={logo_dark} className='w-52 md:w-72'></motion.img>
     </div>
