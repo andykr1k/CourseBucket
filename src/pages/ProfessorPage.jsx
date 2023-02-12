@@ -69,9 +69,6 @@ function ProfessorPage() {
                     <motion.button className='font-bold bg-blue-600 p-3 rounded-md' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={handleFilter}> 
                       Sort
                     </motion.button>
-                    <motion.button className='font-bold bg-blue-600 p-3 rounded-md' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={() => setModal(true)}> 
-                      Add Section
-                    </motion.button>
                 </div>
           </div>
           { supadata.length>0 ? 
@@ -95,12 +92,6 @@ function ProfessorPage() {
                   <div className="flex text-xs">
                     <p className="font-normal text-gray-600">Location &nbsp;</p>
                     <h5 className="font-bold text-blue-600">{item.course_location}</h5>
-                  </div>
-                  <div className="flex">
-                    <p className="font-normal text-gray-600">Social Link &nbsp;</p>
-                    <a href={"https:/"+item.discord_link} target="_blank">
-                      <h5 className="font-bold text-blue-600">{item.discord_link}</h5>
-                    </a>
                   </div>
                 </div>
             </motion.div>
