@@ -59,9 +59,9 @@ function SearchPage() {
     }
     </div>
     <div className='flex justify-center items-center p-8 pb-0'>
-      <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} src={logo_dark} className='w-52 md:w-72'></motion.img>
+      <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} src={logo_dark} className='w-52 md:w-72'></motion.img>
     </div>
-  <motion.form initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} className='mx-10 md:mx-48 p-10 pb-8 pt-8'>
+  <motion.form initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className='mx-10 md:mx-48 p-10 pb-8 pt-8'>
     <label className="mb-2 text-sm font-medium sr-only text-white">Search</label>
       <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -73,7 +73,7 @@ function SearchPage() {
           <input type="search" id="default-search" className="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Search Course ID" required onChange={(e) => setSearch(e.target.value)}></input>
       </div>
     </motion.form>
-    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }}>
+    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
     { search == ''
     ?
       <h1 className="text-2xl md:text-4xl font-normal text-center text-gray-600 pb-5">Explore</h1>
@@ -85,7 +85,7 @@ function SearchPage() {
     { search == ''
     ?
     supadata && supadata.length>0 && supadata.map((item)=>
-      <motion.div key={item.course_id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <motion.div key={item.course_id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div className='overflow-x-hidden'>
           <h5 className="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.course_id}</h5>
           {
@@ -107,7 +107,7 @@ function SearchPage() {
       )
     :
     sortedCourses && sortedCourses.length>0 && sortedCourses.map((item)=>
-        <motion.div key={item.course_id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <motion.div key={item.course_id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div className='overflow-x-hidden'>
             <h5 className="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.course_id}</h5>
             {

@@ -77,7 +77,7 @@ function ProfessorPage() {
           { supadata.length>0 ? 
             <div className="grid grid-cols-1 gap-1 md:gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {supadata && supadata.length>0 && supadata.map((item)=>
-            <motion.div key={item.course_id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: false }} className="space-y-3 mb-5 align-middle ">
+            <motion.div key={item.course_id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="space-y-3 mb-5 align-middle ">
             <div className="grid w-full h-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md justify-between">
                   <div>
                     <h5 className="text-2xl font-bold text-gray-900 dark:text-white">{item.course_name}</h5>
