@@ -6,7 +6,7 @@ import { ErrorPage } from '.'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function CoursePage() {
+function CoursesPage() {
   const [data,setData] = useState([]);
   const [drop, setDrop] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -94,6 +94,9 @@ function CoursePage() {
                 }
                 </div>
           </div>
+          { data.length>0 ? 
+            <div className="grid grid-cols-1 gap-1 md:gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {data && data.length>0 && data.map((item)=>
             <motion.div key={item.course_crn} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="align-middle ">
                 <div className="grid w-full h-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md">
                   <div>
@@ -115,6 +118,11 @@ function CoursePage() {
                   </div>
                 </div>
             </motion.div>
+            )}
+          </div>
+          :
+          <ErrorPage />
+          }
         </div>
         <ToastContainer />
       </div>
@@ -124,4 +132,4 @@ function CoursePage() {
   )
 }
 
-export default CoursePage
+export default CoursesPage
