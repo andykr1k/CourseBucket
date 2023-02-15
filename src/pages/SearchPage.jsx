@@ -1,31 +1,36 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion';
-import { supabase } from '../db/supabase'
-import { AddCourseModal, Loader } from '../components';
-import { AiOutlinePlusCircle } from "react-icons/ai";
+import { Loader } from '../components';
 import logo_dark from '../assets/logo_dark.png'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function SearchPage() {
   const [search, setSearch] = useState('');
-  const [supadata, setSupadata] = useState([]);
-  const [modal, setModal] = useState(false);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchCourses = useCallback(async () => {
-      const { data: supadata } = await supabase
-        .from('Courses')
-        .select('*')
-      
-      const unique = [...new Map(supadata.map((m) => [m.course_id, m])).values()];
-      setSupadata(unique.sort((a, b) => a.course_id > b.course_id  ? 1 : -1))
+
+  const getData=()=>{
+    fetch('/data/ANTH.json',{
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+    })
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(myJson) {
+        setData([...new Map(myJson.map((m) => [m.course_id, m])).values()])
+      });
+
       setTimeout(() => {
         setLoading(false)
-      }, 750);
-  });
+      }, 500);
+  }
 
-  const filteredCourses = supadata.filter(data =>
+  const filteredCourses = data.filter(data =>
     data.course_name.toLowerCase().includes(search.toLowerCase()) ||
     data.course_id.toLowerCase().includes(search.toLowerCase())
   );
@@ -33,7 +38,7 @@ function SearchPage() {
   const sortedCourses = filteredCourses.sort((a, b) => a.course_id > b.course_id  ? 1 : -1);
 
   useEffect(() => {
-    fetchCourses();
+    getData();
   }, []);
 
   return (
@@ -70,8 +75,8 @@ function SearchPage() {
     <div className='grid place-items-center grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 m-10 lg:m-36 lg:mt-5 mt-2'>
     { search == ''
     ?
-    supadata && supadata.length>0 && supadata.map((item)=>
-      <motion.div key={item.course_id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+    data && data.length>0 && data.map((item)=>
+      <motion.div key={item.course_crn} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div className='overflow-x-hidden'>
           <h5 className="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.course_id}</h5>
           {
@@ -93,7 +98,7 @@ function SearchPage() {
       )
     :
     sortedCourses && sortedCourses.length>0 && sortedCourses.map((item)=>
-        <motion.div key={item.course_id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+        <motion.div key={item.course_crn} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full h-42 p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div className='overflow-x-hidden'>
             <h5 className="mb-2 text-lg md:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.course_id}</h5>
             {

@@ -1,40 +1,44 @@
 import { useParams } from "react-router";
 import { motion } from "framer-motion";
-import { supabase } from '../db/supabase'
-import { useState, useEffect, useCallback } from 'react'
-import { AddSectionModal, Loader, DeleteCourse } from '../components';
+import { useState, useEffect } from 'react'
+import { AddSectionModal, Loader } from '../components';
 import { ErrorPage } from '../pages'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function ProfessorPage() {
-  const [supadata, setSupadata] = useState([]);
+  const [data,setData] = useState([]);
   const [modal, setModal] = useState(false);
   const [loading, setLoading] = useState(true);
 
   let { id } = useParams();
 
-  const fetchCourses = useCallback(async () => {
-    const { data: supadata } = await supabase
-      .from('Courses')
-      .select('*')
-      .eq('course_professor', id.replace(/%20/g, ' '))
+  const getData=()=>{
+    fetch('/data/ANTH.json',{
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+    })
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(myJson) {
+        setData(myJson.filter( item => item.course_professor == id.replace(/%20/g, ' ')))
+      });
 
-      setSupadata(supadata);
-      console.log(supadata);
       setTimeout(() => {
         setLoading(false)
-      }, 250);
-  });
-
+      }, 500);
+  }
 
   const handleFilter = (e) => {
     e.preventDefault();
-    supadata.sort((a, b) => a.course_id > b.course_id ? 1 : -1)
+    data.sort((a, b) => a.course_professor > b.course_professor  ? 1 : -1)
   }
 
   useEffect(() => {
-    fetchCourses();
+    getData();
   }, []);
   return (
     <>
@@ -71,10 +75,10 @@ function ProfessorPage() {
                     </motion.button>
                 </div>
           </div>
-          { supadata.length>0 ? 
+          { data.length>0 ? 
             <div className="grid grid-cols-1 gap-1 md:gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {supadata && supadata.length>0 && supadata.map((item)=>
-            <motion.div key={item.course_id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="align-middle ">
+            {data && data.length>0 && data.map((item)=>
+            <motion.div key={item.course_crn} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="align-middle ">
             <div className="grid w-full h-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md">
                   <div>
                     <h5 className="text-2xl font-bold text-gray-900 dark:text-white">{item.course_name}</h5>
