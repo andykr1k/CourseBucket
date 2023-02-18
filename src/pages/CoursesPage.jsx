@@ -100,11 +100,11 @@ function CoursesPage() {
             <motion.div key={item.course_crn} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="align-middle ">
                 <div className="grid w-full h-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md">
                   <div>
-                    <h5 className="text-2xl font-bold text-gray-900 dark:text-white">{item.course_name}</h5>
+                    <h5 className="text-xl font-bold text-gray-900 dark:text-white">{item.course_name}</h5>
                     <a href={"/"+item.course_id}>
                       <p className="font-semibold text-blue-600 dark:text-gray-400">{item.course_id}</p>
                     </a>
-                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.course_time}</p>
+                    <p className="mb-2 text-sm font-normal text-gray-700 dark:text-gray-400">{item.course_days + " " + item.course_time}</p>
                   </div>
                   <div className="flex">
                     <p className="font-normal text-gray-600">Professor &nbsp;</p>
@@ -112,9 +112,13 @@ function CoursesPage() {
                       <h5 className="font-bold text-blue-600">{item.course_professor}</h5>
                     </a>
                   </div>
-                  <div className="flex text-xs mb-2">
+                  <div className="flex text-xs">
                     <p className="font-normal text-gray-600">Location &nbsp;</p>
                     <h5 className="font-bold text-blue-600">{item.course_location}</h5>
+                  </div>
+                  <div className="flex text-xs mb-2">
+                    <p className="font-normal text-gray-600">Type &nbsp;</p>
+                    <h5 className="font-bold text-blue-600">{item.course_type}</h5>
                   </div>
                   <div>
                     <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href={"/course/"+item.course_crn} className="inline-flex items-center px-3 py-2 text-xs md:text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
