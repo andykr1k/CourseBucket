@@ -57,7 +57,10 @@ function CoursePage() {
                     </motion.button>
                   </a>
                   <h1 className='font-bold bg-blue-600 p-3 rounded-md'>
-                    Course:&nbsp;{data.at(0).course_crn}
+                    Section:&nbsp;{data.at(0).course_section}
+                  </h1>
+                  <h1 className='font-bold bg-blue-600 p-3 rounded-md'>
+                    CRN:&nbsp;{data.at(0).course_crn}
                   </h1>
                 </div>
           </div>
@@ -65,9 +68,6 @@ function CoursePage() {
                 <div className="grid w-full h-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md">
                   <div>
                     <h5 className="text-2xl font-bold text-gray-900 dark:text-white">{data.at(0).course_name}</h5>
-                    <a href={"/"+data.at(0).course_id}>
-                      <p className="font-semibold text-blue-600 dark:text-gray-400">{data.at(0).course_id}</p>
-                    </a>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{data.at(0).course_days + " " + data.at(0).course_time}</p>
                   </div>
                   <div className="flex">
@@ -76,11 +76,11 @@ function CoursePage() {
                       <h5 className="font-bold text-blue-600">{data.at(0).course_professor}</h5>
                     </a>
                   </div>
-                  <div className="flex text-xs">
+                  <div className="flex">
                     <p className="font-normal text-gray-600">Location &nbsp;</p>
                     <h5 className="font-bold text-blue-600">{data.at(0).course_location}</h5>
                   </div>
-                  <div className="flex text-xs">
+                  <div className="flex">
                     <p className="font-normal text-gray-600">Type &nbsp;</p>
                     <h5 className="font-bold text-blue-600">{data.at(0).course_type}</h5>
                   </div>

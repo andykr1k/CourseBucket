@@ -79,15 +79,7 @@ function CoursesPage() {
                     <div className="flex justify-between">
                       <h3>Professor</h3>
                         <button className="w-5 h-5 outline rounded-md"></button>
-                    </div>
-                    <div className="flex justify-between">
-                      <h3>ID</h3>
-                        <button className="w-5 h-5 outline rounded-md"></button>
-                    </div>
-                    <div className="flex justify-between">
-                      <h3>Name</h3>
-                        <button className="w-5 h-5 outline rounded-md"></button>
-                    </div>
+                    </div>        
                   </div>
                   :
                   <div></div>
@@ -100,13 +92,10 @@ function CoursesPage() {
             <motion.div key={item.course_crn} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="align-middle ">
                 <div className="grid w-full h-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md">
                   <div>
-                    <h5 className="text-xl font-bold text-gray-900 dark:text-white">{item.course_name}</h5>
-                    <a href={"/"+item.course_id}>
-                      <p className="font-semibold text-blue-600 dark:text-gray-400">{item.course_id}</p>
-                    </a>
+                    <h5 className="text-xl font-bold text-gray-900 dark:text-white">{item.course_id +"-"+item.course_section}</h5>
                     <p className="mb-2 text-sm font-normal text-gray-700 dark:text-gray-400">{item.course_days + " " + item.course_time}</p>
                   </div>
-                  <div className="flex">
+                  <div className="flex text-xs">
                     <p className="font-normal text-gray-600">Professor &nbsp;</p>
                     <a href={"/professor/"+item.course_professor}>
                       <h5 className="font-bold text-blue-600">{item.course_professor}</h5>
