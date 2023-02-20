@@ -95,17 +95,17 @@ function CoursesPage() {
                     <h5 className="text-xl font-bold text-gray-900 dark:text-white">{item.course_id +"-"+item.course_section}</h5>
                     <p className="mb-2 text-sm font-normal text-gray-700 dark:text-gray-400">{item.course_days + " " + item.course_time}</p>
                   </div>
-                  <div className="flex text-xs">
+                  <div className="flex">
                     <p className="font-normal text-gray-600">Professor &nbsp;</p>
-                    <a href={"/professor/"+item.course_professor}>
+                    <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href={"/professor/"+item.course_professor}>
                       <h5 className="font-bold text-blue-600">{item.course_professor}</h5>
-                    </a>
+                    </motion.a>
                   </div>
-                  <div className="flex text-xs">
+                  <div className="flex">
                     <p className="font-normal text-gray-600">Location &nbsp;</p>
                     <h5 className="font-bold text-blue-600">{item.course_location}</h5>
                   </div>
-                  <div className="flex text-xs mb-2">
+                  <div className="flex mb-2">
                     <p className="font-normal text-gray-600">Type &nbsp;</p>
                     <h5 className="font-bold text-blue-600">{item.course_type}</h5>
                   </div>

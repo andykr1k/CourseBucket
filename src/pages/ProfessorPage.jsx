@@ -89,9 +89,9 @@ function ProfessorPage() {
                   </div>
                   <div className="flex">
                     <p className="font-normal text-gray-600">Professor &nbsp;</p>
-                    <a href={"/professor/"+item.course_professor}>
+                    <motion.a href={"/professor/"+item.course_professor} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                       <h5 className="font-bold text-blue-600">{item.course_professor}</h5>
-                    </a>
+                    </motion.a>
                   </div>
                   <div className="flex text-xs">
                     <p className="font-normal text-gray-600">Location &nbsp;</p>
