@@ -9,6 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 function ProfessorPage() {
   const [data,setData] = useState([]);
   const [modal, setModal] = useState(false);
+  const [drop, setDrop] = useState(false);
+  const [sortedName, setSortedName] = useState(false);
+  const [sortedID, setSortedID] = useState(false);
   const [loading, setLoading] = useState(true);
 
   let { id } = useParams();
@@ -32,9 +35,54 @@ function ProfessorPage() {
       }, 500);
   }
 
-  const handleFilter = (e) => {
-    e.preventDefault();
-    data.sort((a, b) => a.course_professor > b.course_professor  ? 1 : -1)
+  function handleFilter(){
+    if (drop == false) {
+      setDrop(true)
+    } else {
+      setDrop(false);
+    }
+  }
+
+  function handleNameSort(){
+    setSortedName(!sortedName)
+    if (sortedName == false){
+      setSortedID(false)
+      data.sort((a, b) => a.course_name > b.course_name  ? 1 : -1)
+    } else {
+      fetch('/data/ANTH.json',{
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }
+      })
+        .then(function(response){
+          return response.json();
+        })
+        .then(function(myJson) {
+          setData(myJson.filter( item => item.course_professor == id.replace(/%20/g, ' ')))
+        });
+    }
+  }
+
+  function handleIDSort(){
+    setSortedID(!sortedID)
+    if (sortedID == false){
+      setSortedName(false)
+      data.sort((a, b) => a.course_id > b.course_id  ? 1 : -1)
+    } else {
+      fetch('/data/ANTH.json',{
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         }
+      })
+        .then(function(response){
+          return response.json();
+        })
+        .then(function(myJson) {
+          setData(myJson.filter( item => item.course_professor == id.replace(/%20/g, ' ')))
+        });
+    }
   }
 
   useEffect(() => {
@@ -69,10 +117,38 @@ function ProfessorPage() {
                     {id}
                   </h1>
                 </div>
-                <div className="space-x-3">
-                    <motion.button className='font-bold bg-blue-600 p-3 rounded-md' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={handleFilter}> 
-                      Sort
-                    </motion.button>
+                <div>
+                  <motion.button className="flex align-middle justify-center items-center font-bold bg-blue-600 p-3 rounded-md" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={handleFilter}>
+                      <h2> 
+                        Sort
+                      </h2>
+                      <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                      </svg>
+                  </motion.button>
+                  {
+                  drop == true ?
+                  <div className="fixed grid right-0 w-36 bg-blue-600 rounded-md z-10 mt-2 mr-5 p-3 space-y-3">
+                    <div className="flex justify-between">
+                      <h3>Name</h3>
+                      { sortedName == true ? 
+                        <button className="w-5 h-5 bg-white rounded-md" onClick={handleNameSort}></button>
+                      :
+                      <button className="w-5 h-5 outline rounded-md" onClick={handleNameSort}></button>
+                      }
+                    </div>
+                    <div className="flex justify-between">
+                      <h3>ID</h3>
+                      { sortedID == true ? 
+                        <button className="w-5 h-5 bg-white rounded-md" onClick={handleIDSort}></button>
+                      :
+                      <button className="w-5 h-5 outline rounded-md" onClick={handleIDSort}></button>
+                      }
+                    </div>       
+                  </div>
+                  :
+                  <div></div>
+                }
                 </div>
           </div>
           { data.length>0 ? 
