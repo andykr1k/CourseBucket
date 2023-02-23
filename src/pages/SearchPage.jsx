@@ -50,7 +50,7 @@ function SearchPage() {
       :
       <div className="">
     <div className='flex justify-center items-center p-8 pb-0'>
-      <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} src={logo_dark} className='w-52 md:w-72'></motion.img>
+      <motion.img initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} src={logo_dark} className='w-52 md:w-72' loading="lazy"></motion.img>
     </div>
   <motion.form initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className='mx-10 md:mx-48 p-10 pb-8 pt-8'>
     <label className="mb-2 text-sm font-medium sr-only text-white">Search</label>
