@@ -53,12 +53,9 @@ function CoursePage() {
                   </a>
                   <a href={"/"+data.at(0).course_id}>
                     <motion.button className='font-bold bg-blue-600 p-3 rounded-md' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    {data.at(0).course_id}
+                    {data.at(0).course_id+"-"+data.at(0).course_section}
                     </motion.button>
                   </a>
-                  <h1 className='font-bold bg-blue-600 p-3 rounded-md'>
-                    Section:&nbsp;{data.at(0).course_section}
-                  </h1>
                   <h1 className='font-bold bg-blue-600 p-3 rounded-md'>
                     CRN:&nbsp;{data.at(0).course_crn}
                   </h1>
@@ -71,11 +68,16 @@ function CoursePage() {
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{data.at(0).course_days + " " + data.at(0).course_time}</p>
                   </div>
                   <div className="flex">
+                    <p className="font-normal text-gray-600">Section &nbsp;</p>
+                    <h5 className="font-bold text-blue-600">{data.at(0).course_section}</h5>
+                  </div>
+                  <div className="flex">
                     <p className="font-normal text-gray-600">Professor &nbsp;</p>
                     <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href={"/professor/"+data.at(0).course_professor}>
                       <h5 className="font-bold text-blue-600">{data.at(0).course_professor}</h5>
                     </motion.a>
                   </div>
+                
                   <div className="flex">
                     <p className="font-normal text-gray-600">Location &nbsp;</p>
                     <h5 className="font-bold text-blue-600">{data.at(0).course_location}</h5>

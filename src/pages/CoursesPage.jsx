@@ -115,7 +115,7 @@ function CoursesPage() {
                 </div>
           </div>
           { data.length>0 ? 
-            <div className="grid grid-cols-1 gap-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {data && data.length>0 && data.map((item)=>
             <motion.div key={item.course_crn} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="align-middle ">
                 <div className="grid w-full h-full p-6 bg-white/90 rounded-lg shadow-md">
