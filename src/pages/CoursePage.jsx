@@ -31,7 +31,6 @@ function CoursePage() {
   }
 
   useEffect(() => {
-    console.log(id);
     getData();
   }, []);
   return (
@@ -86,9 +85,13 @@ function CoursePage() {
                     <p className="font-normal text-gray-600">Type &nbsp;</p>
                     <h5 className="font-bold text-blue-600">{data.at(0).course_type}</h5>
                   </div>
+                  <div className="flex">
+                    <p className="font-normal text-gray-600">Prerequisites: &nbsp;</p>
+                    <h5 className="font-bold text-blue-600">{data.at(0).course_pre}</h5>
+                  </div>
                 </div>
             </motion.div>
-            <motion.div key={data.at(0).course_crn} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="align-middle">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="align-middle">
                 <div className="grid w-full h-full p-6 bg-white/90 border border-gray-200 rounded-lg shadow-md">
                   <div>
                     <h5 className="text-2xl font-bold text-gray-900 dark:text-white">Course Reviews</h5>
