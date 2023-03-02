@@ -15,7 +15,7 @@ function CoursePage() {
   let { id } = useParams();
 
   const getData=()=>{
-    fetch('/src/data/data.json',{
+    fetch('/data/data.json',{
       headers : { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -117,7 +117,7 @@ function CoursePage() {
                       <div>
                         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                           {reqs && reqs.map((item) =>
-                          <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} href={"/"+item}  className="bg-blue-600 grid w-full h-full p-6 rounded-lg shadow-md text-white items-center justify-center text-xl">
+                          <motion.a key={item} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} href={"/"+item}  className="bg-blue-600 grid w-full h-full p-6 rounded-lg shadow-md text-white items-center justify-center text-xl">
                             {item}
                           </motion.a>
                           )
@@ -125,7 +125,9 @@ function CoursePage() {
                         </div>
                       </div>
                       :
-                      <></>
+                      <motion.div className="bg-blue-600 grid w-full h-full p-6 rounded-lg shadow-md text-white items-center justify-center text-xl">
+                          No Prerequisites
+                      </motion.div>
                     }
                     </>
                   }
